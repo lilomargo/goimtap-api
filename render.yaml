@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: goimtap-indicadores-api
+    runtime: python
+    buildCommand: pip install -r requirements_servidor.txt
+    startCommand: python servidor.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
