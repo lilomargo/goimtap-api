@@ -200,7 +200,7 @@ def correr_indicadores():
         df_parque_final.iloc[:, 0] = df_parque_final.iloc[:, 0].astype(int)
         df_parque_final.iloc[:, 1:] = df_parque_final.iloc[:, 1:].round(2)
         cols_pct = df_parque_final.columns[2:]
-        df_parque_final[cols_pct] = df_parque_final[cols_pct].applymap(lambda x: f"{x:.2f}%")
+        df_parque_final[cols_pct] = df_parque_final[cols_pct].apply(lambda col: col.map(lambda x: f"{x:.2f}%"))
         df_parque_final['Línea'] = df_parque_final['Línea'].astype(int).replace(0, 1057)
 
         # ── 9. PARQUE HABILITADO ────────────────────────────────────────────
